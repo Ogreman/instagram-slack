@@ -3,7 +3,7 @@ import requests
 
 INSTAGRAM_CLIENT_ID = os.environ['INSTAGRAM_CLIENT_ID']
 INSTAGRAM_CLIENT_SECRET = os.environ['INSTAGRAM_CLIENT_SECRET']
-SERVER_URL = os.environ['SERVER_URL']
+SERVER_URL = os.environ['REMOTE_SERVER_URL']
 
 
 if __name__ == '__main__':
@@ -20,14 +20,13 @@ if __name__ == '__main__':
                 object="user",
                 aspect="media",
                 verify_token="TOKENOFDOOM",
-                callback_url=SERVER_URL + "/realtime_callback",
+                callback_url=str(SERVER_URL),
             )
         )
         if response.ok:
             print "done"
         else:
             print "failed", response.status_code
+            print response.content
     else:
         print "exists"
-
-
