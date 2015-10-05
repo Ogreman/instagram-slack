@@ -147,7 +147,7 @@ def insta():
 
 if __name__ == "__main__":
     if os.environ.get('INSTA_PRODUCTION'):
-        app.run(host='0.0.0.0', port=81, debug=os.environ.get('INSTA_DEBUG', False))
+        app.run(host='0.0.0.0', port=89, debug=os.environ.get('INSTA_DEBUG', False))
     else:
         app.run(debug=os.environ.get('INSTA_DEBUG', True))
 
